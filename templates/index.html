@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Chango' rel='stylesheet'>
+    
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0 ">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <title>Student Satisfaction Prediction</title>
+
+</head>
+
+<body>
+    <div class="warning-container">
+        <div class="warning-box">
+            <h2>Warning!</h2>
+            <p>This is a warning message that the following predictions are for the purpose of a university project and in no way reflect your true student satisfaction. Student satisfaction is made up of many factors, this prediction only takes into account one of the many factors and therefore cannot be reflective of your actual satisfaction rate.</p>
+            <button id="proceed-btn">Next</button>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="banner text-center" id='top'>
+            <h1 class="headings text-center"> Student Satisfaction Prediction</h1>
+        </div> 
+        <div class="container mt-5" id='choice'>
+            <form id="predictionForm">
+                <!-- Dropdown menu for student characteristics -->
+                <div class="form-group">
+                    <label for="characteristic">Select Characteristic:</label>
+                    <select class="form-control" id="characteristic">
+                        <!-- Populate dropdown options dynamically -->
+                        <option value="nothing">---</option>
+                        <option value="Age">Age</option>
+                        <option value="Sex">Sex</option>
+                        <option value="Ethnicity">Ethnicity</option>
+                        <option value="Disability Status">Disability Status</option>
+                        <option value="Domicile">Domicile</option>
+                    </select>
+                </div>
+                <div class="form-group" id="specificOptions">
+                    <!-- This will be dynamically populated based on the selection -->
+                </div>
+                <!-- Button to trigger prediction -->
+                <button type="submit" class="btn btn-primary">Predict Satisfaction</button>
+            </form>
+            <!-- Display prediction result -->
+            <div id="predictionResult" class="mt-3"></div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/prediction_script.js') }}"></script>
+    </div>
+</body>
+</html>
